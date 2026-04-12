@@ -3,7 +3,7 @@ import { request } from './request'
 export function getBlogList(params = {}) {
   const query = { page: params.page || 1, size: params.size || 10 }
   if (params.author) query.author = params.author
-  return request.get('/api/blog', { params: query })
+  return request.get('/api/blogs', { params: query })
 }
 
 export function getBlogDetail(id) {
