@@ -79,8 +79,8 @@ onMounted(async () => {
     const res = await getBlogDetail(id)
     const d = res?.data ?? res
     if (d) {
-      form.title = d.content ?? ''
-      form.content = d.title ?? ''
+      form.title = d.title ?? ''
+      form.content = d.content ?? ''
     }
   } catch {
     ElMessage.error('加载博客失败')
