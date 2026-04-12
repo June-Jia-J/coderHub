@@ -1,0 +1,60 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: blog
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    # 首次启动后需在容器内拉取模型：docker compose exec ollama ollama pull deepseek-r1:1.5b
+
+  backend:
+    build: ./backend
+    ports:
+      - "8207:8080"
+    environment:
+      DB_URL: jdbc:mysql://db:3306/blog?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+      DB_USER: root
+      DB_PASSWORD: root
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: deepseek-r1:1.5b
+    depends_on:
+      db:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 5s
+      timeout: 3s
+      start_period: 30s
+      retries: 10
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE: http://localhost:8207
+    ports:
+      - "3530:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
+  ollama_data:

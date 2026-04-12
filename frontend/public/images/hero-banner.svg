@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="720" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07151a"/>
+      <stop offset="0.55" stop-color="#0a0e14"/>
+      <stop offset="1" stop-color="#06080c"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0" y1="0" x2="720" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity="0.9"/>
+      <stop offset="0.55" stop-color="#22d3ee" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0d9488" stop-opacity="0.85"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.05  0 0 0 0 0.8  0 0 0 0 0.72  0 0 0 0.9 0" result="colored"/>
+      <feMerge>
+        <feMergeNode in="colored"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="10" y="10" width="700" height="400" rx="16" fill="url(#bg)" stroke="rgba(13,148,136,0.45)" stroke-width="2"/>
+  <g opacity="0.22">
+    <path d="M60 50H660M60 90H660M60 130H660M60 170H660M60 210H660M60 250H660M60 290H660M60 330H660M60 370H660" stroke="rgba(13,148,136,0.28)" stroke-width="1"/>
+    <path d="M80 40V380M140 40V380M200 40V380M260 40V380M320 40V380M380 40V380M440 40V380M500 40V380M560 40V380M620 40V380" stroke="rgba(13,148,136,0.22)" stroke-width="1"/>
+  </g>
+  <g filter="url(#glow)">
+    <rect x="70" y="70" width="420" height="240" rx="10" fill="#0f1419" stroke="url(#neon)" stroke-width="2"/>
+    <rect x="70" y="70" width="420" height="36" rx="10" fill="#151b23" opacity="0.95"/>
+    <circle cx="92" cy="88" r="6" fill="#ef4444"/>
+    <circle cx="112" cy="88" r="6" fill="#f59e0b"/>
+    <circle cx="132" cy="88" r="6" fill="#22c55e"/>
+    <g opacity="0.92">
+      <path d="M96 140h220" stroke="#0d9488" stroke-width="10" stroke-linecap="square"/>
+      <path d="M96 175h300" stroke="rgba(34,211,238,0.85)" stroke-width="10" stroke-linecap="square"/>
+      <path d="M96 210h180" stroke="rgba(13,148,136,0.75)" stroke-width="10" stroke-linecap="square"/>
+      <path d="M96 245h260" stroke="rgba(34,211,238,0.6)" stroke-width="10" stroke-linecap="square"/>
+    </g>
+  </g>
+  <g filter="url(#glow)">
+    <rect x="520" y="120" width="140" height="140" rx="12" fill="#0f1419" stroke="rgba(34,211,238,0.65)" stroke-width="2"/>
+    <g opacity="0.9">
+      <path d="M540 150h100M540 180h100M540 210h100" stroke="rgba(13,148,136,0.75)" stroke-width="10" stroke-linecap="square"/>
+      <path d="M570 135v110M610 135v110" stroke="rgba(34,211,238,0.55)" stroke-width="6" stroke-linecap="square"/>
+    </g>
+  </g>
+  <g opacity="0.10">
+    <path d="M20 30H700M20 50H700M20 70H700M20 90H700M20 110H700M20 130H700M20 150H700M20 170H700M20 190H700M20 210H700M20 230H700M20 250H700M20 270H700M20 290H700M20 310H700M20 330H700M20 350H700M20 370H700M20 390H700" stroke="#ffffff" stroke-width="1"/>
+  </g>
+</svg>

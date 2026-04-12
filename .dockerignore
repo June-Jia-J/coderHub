@@ -1,0 +1,27 @@
+# Dependencies & build
+node_modules/
+dist/
+build/
+target/
+*.jar
+*.war
+*.ear
+
+# IDE & OS
+.idea/
+.vscode/
+.git/
+.gitignore
+*.iml
+.DS_Store
+
+# Env
+.env
+.env.*
+.venv/
+__pycache__/
+
+# Do NOT ignore (needed for reproducible build)
+# package-lock.json
+# pom.xml
+# settings.xml

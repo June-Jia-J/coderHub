@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.blog.mapper.BlogMapper">
+
+  <resultMap id="BlogVOMap" type="com.example.blog.dto.BlogVO">
+    <id column="id" property="id"/>
+    <result column="title" property="title"/>
+    <result column="content" property="content"/>
+    <result column="user_id" property="authorId"/>
+    <result column="author_name" property="authorName"/>
+    <result column="created_at" property="createdAt"/>
+    <result column="updated_at" property="updatedAt"/>
+  </resultMap>
+
+  <select id="selectById" resultMap="BlogVOMap">
+    SELECT b.id, b.title, b.content, b.user_id, b.created_at, b.updated_at, u.username AS author_name
+    FROM blog b
+    LEFT JOIN user u ON b.user_id = u.id
+    WHERE b.id = #{id}
+  </select>
+
+  <update id="update">
+    UPDATE blog SET title = #{title}, content = #{content}, updated_at = CURRENT_TIMESTAMP WHERE id = #{id}
+  </update>
+
+  <delete id="deleteById">
+    DELETE FROM blog WHERE id = #{id}
+  </delete>
+
+  <select id="selectUserIdById" resultType="long">
+    SELECT user_id FROM blog WHERE id = #{id}
+  </select>
+
+  <select id="selectPage" resultType="com.example.blog.dto.BlogListVO">
+    SELECT b.id, b.title,
+           CASE WHEN LENGTH(b.content) > 200 THEN CONCAT(SUBSTRING(b.content, 1, 200), '...') ELSE b.content END AS summary,
+           u.username AS authorName,
+           b.created_at AS createdAt
+    FROM blog b
+    LEFT JOIN user u ON b.user_id = u.id
+    <where>
+      <if test="author != null and author != ''">
+        u.username = #{author}
+      </if>
+    </where>
+    ORDER BY b.created_at DESC
+    LIMIT #{limit} OFFSET #{offset}
+  </select>
+
+  <select id="count" resultType="int">
+    SELECT COUNT(*) FROM blog b
+    <if test="author != null and author != ''">
+      LEFT JOIN user u ON b.user_id = u.id WHERE u.username = #{author}
+    </if>
+  </select>
+</mapper>

@@ -1,0 +1,44 @@
+# Dependencies & build
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+build/
+target/
+doc/
+*.jar
+*.war
+*.ear
+*.class
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Env & cache
+.env
+.env.local
+.env.*.local
+.venv/
+venv/
+__pycache__/
+*.pyc
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Do NOT ignore (needed for Docker/build)
+# package-lock.json
+# pom.xml
+# settings.xml

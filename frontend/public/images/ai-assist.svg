@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" viewBox="0 0 600 420" fill="none">
+  <defs>
+    <linearGradient id="ai-bg" x1="0" y1="0" x2="600" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07151a"/>
+      <stop offset="0.5" stop-color="#0a0e14"/>
+      <stop offset="1" stop-color="#0f1419"/>
+    </linearGradient>
+    <linearGradient id="ai-neon" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488"/>
+      <stop offset="0.5" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+    <filter id="ai-glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.05  0 0 0 0 0.58  0 0 0 0 0.53  0 0 0 0.5 0" result="colored"/>
+      <feMerge><feMergeNode in="colored"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="600" height="420" fill="url(#ai-bg)"/>
+  <g filter="url(#ai-glow)">
+    <rect x="60" y="80" width="220" height="260" rx="12" fill="#0f1419" stroke="url(#ai-neon)" stroke-width="2"/>
+    <rect x="70" y="90" width="200" height="180" rx="6" fill="#0a0e14" stroke="rgba(13,148,136,0.4)" stroke-width="1"/>
+    <rect x="70" y="90" width="200" height="28" rx="6" fill="#151b23"/>
+    <circle cx="88" cy="104" r="5" fill="#ef4444"/>
+    <circle cx="106" cy="104" r="5" fill="#f59e0b"/>
+    <circle cx="124" cy="104" r="5" fill="#22c55e"/>
+    <rect x="82" y="132" width="90" height="10" rx="2" fill="#0d9488" opacity="0.9"/>
+    <rect x="82" y="148" width="140" height="10" rx="2" fill="#22d3ee" opacity="0.8"/>
+    <rect x="82" y="164" width="70" height="10" rx="2" fill="#0d9488" opacity="0.7"/>
+    <rect x="82" y="180" width="120" height="10" rx="2" fill="rgba(34,211,238,0.6)"/>
+    <path d="M100 278h80l20 24H80l20-24z" fill="#151b23" stroke="rgba(13,148,136,0.35)" stroke-width="1"/>
+  </g>
+  <g filter="url(#ai-glow)">
+    <ellipse cx="380" cy="200" rx="120" ry="80" fill="#151b23" stroke="#22d3ee" stroke-width="2" opacity="0.95"/>
+    <text x="380" y="195" font-family="sans-serif" font-size="28" font-weight="700" fill="#22d3ee" text-anchor="middle">AI</text>
+    <text x="380" y="220" font-family="sans-serif" font-size="14" fill="#8b949e" text-anchor="middle">&#21327;&#20316;&#20889;&#20316;</text>
+    <path d="M280 200 H320 M320 200 L340 180 M340 180 L380 180" stroke="#0d9488" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    <circle cx="480" cy="140" r="36" fill="none" stroke="#0d9488" stroke-width="2" opacity="0.8"/>
+    <path d="M468 140h24M480 128v24M472 136l16 16M488 136l-16 16" stroke="#0d9488" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  </g>
+  <g opacity="0.12">
+    <path d="M0 360h600M0 380h600M0 400h600" stroke="#0d9488" stroke-width="1"/>
+    <path d="M0 360v60M100 360v60M200 360v60M300 360v60M400 360v60M500 360v60M600 360v60" stroke="#0d9488" stroke-width="1"/>
+  </g>
+</svg>

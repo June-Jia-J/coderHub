@@ -1,0 +1,197 @@
+/* 设计令牌：像素风 + 赛博朋克 + 骇客（现代官网级别）主色青绿 #0d9488，无紫色 */
+:root {
+  /* 字体：等宽/终端感 */
+  --font-mono: 'Share Tech Mono', 'VT323', 'Consolas', 'Monaco', monospace;
+  --font-heading: 'VT323', 'Share Tech Mono', monospace;
+
+  /* 排版（更专业的层级与可读性） */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.875rem;
+  --leading-tight: 1.25;
+  --leading-normal: 1.6;
+
+  /* 背景渐变（官网质感，不刺眼） */
+  --bg-grad-1: #06080c;
+  --bg-grad-2: #0a0e14;
+  --bg-grad-3: #07151a;
+
+  /* 背景层级（深色赛博朋克） */
+  --bg-base: #0a0e14;
+  --bg-surface: #0f1419;
+  --bg-elevated: #151b23;
+  --bg-overlay: #1a2129;
+
+  /* 主色：霓虹青绿 */
+  --color-primary: #0d9488;
+  --color-primary-hover: #14b8a6;
+  --color-primary-active: #0b8077;
+  --color-primary-soft: rgba(13, 148, 136, 0.2);
+
+  /* 次强调色（更现代的“电蓝/青”高光，不走紫） */
+  --color-accent: #22d3ee;
+  --color-accent-soft: rgba(34, 211, 238, 0.16);
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  /* 霓虹发光 */
+  --glow-primary: 0 0 8px rgba(13, 148, 136, 0.5), 0 0 16px rgba(13, 148, 136, 0.25);
+  --glow-primary-strong: 0 0 12px rgba(13, 148, 136, 0.7), 0 0 24px rgba(13, 148, 136, 0.35);
+  --glow-accent: 0 0 10px rgba(34, 211, 238, 0.35), 0 0 22px rgba(34, 211, 238, 0.18);
+
+  /* 文字 */
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --text-invert: #0a0e14;
+
+  /* 边框（终端感） */
+  --border-default: #2d3748;
+  --border-subtle: #1a2129;
+  --border-neon: rgba(13, 148, 136, 0.5);
+  --border-grid: rgba(13, 148, 136, 0.08);
+
+  /* 圆角：像素风小圆角 */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+
+  /* 间距（现代官网更有呼吸感） */
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+
+  /* 阴影 + 霓虹 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 10px 30px rgba(0, 0, 0, 0.45), var(--glow-primary);
+
+  /* 过渡 */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  /* 内容宽度 */
+  --content-max-width: 800px;
+  --content-wide: 960px;
+}
+
+/* Element Plus 主色覆盖为青绿（避免紫色） */
+:root {
+  --el-color-primary: #0d9488;
+  --el-color-primary-light-3: #2dd4bf;
+  --el-color-primary-light-5: #5eead4;
+  --el-color-primary-light-7: #99f6e4;
+  --el-color-primary-light-9: #ccfbf1;
+  --el-color-primary-dark-2: #0b8077;
+}
+.el-button--primary,
+.el-pagination.is-background .el-pager li.is-active {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+.el-button--primary:hover {
+  background: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
+}
+.el-button--primary:active {
+  background: var(--color-primary-active) !important;
+  border-color: var(--color-primary-active) !important;
+}
+.el-button--success { background: #22c55e; border-color: #22c55e; }
+.el-button--success:hover { background: #16a34a; border-color: #16a34a; }
+.el-link--primary { color: var(--color-primary); }
+.el-message-box__btns .el-button--primary { background: var(--color-primary); border-color: var(--color-primary); }
+
+/* Element Plus 细节：更“官网级”的克制质感 */
+.el-button { border-radius: var(--radius-md) !important; }
+.el-button--primary { box-shadow: var(--glow-primary); }
+.el-button--primary:hover { box-shadow: var(--glow-primary-strong); }
+.el-input__wrapper { backdrop-filter: blur(6px); }
+
+/* 输入框字数统计 */
+.el-input .el-input__count .el-input__count-inner {
+  background: transparent;
+}
+.el-input__count-inner {
+  color: #ffffff !important;
+}
+
+/* textarea 字数统计（与 input 保持一致，深色下清晰可读） */
+.el-textarea .el-input__count {
+  background: transparent;
+}
+.el-textarea .el-input__count .el-input__count-inner,
+.el-input .el-input__count .el-input__count-inner {
+  background: transparent;
+  color: #ffffff !important;
+  font-size: 12px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+}
+
+/* ElMessageBox（确认弹窗）：像素风 + 赛博朋克 + 骇客 */
+.el-overlay {
+  background-color: rgba(0, 0, 0, 0.62) !important;
+  backdrop-filter: blur(2px);
+}
+.el-message-box {
+  background: linear-gradient(180deg, rgba(13, 148, 136, 0.10), rgba(34, 211, 238, 0.05)),
+    var(--bg-surface) !important;
+  border: 2px solid var(--border-neon) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-glow) !important;
+}
+.el-message-box__header {
+  padding: 16px 18px 0 !important;
+}
+.el-message-box__title {
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+  color: var(--text-primary) !important;
+  text-shadow: var(--glow-primary);
+}
+.el-message-box__headerbtn .el-message-box__close {
+  color: rgba(230, 237, 243, 0.85) !important;
+}
+.el-message-box__content {
+  padding: 14px 18px 8px !important;
+  color: var(--text-secondary) !important;
+}
+.el-message-box__message {
+  color: var(--text-secondary) !important;
+}
+.el-message-box__status.el-icon {
+  color: var(--color-accent) !important;
+  filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.25));
+}
+.el-message-box__btns {
+  padding: 12px 18px 18px !important;
+}
+.el-message-box__btns .el-button {
+  border-radius: var(--radius-md) !important;
+  border-width: 2px !important;
+}
+.el-message-box__btns .el-button--default {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: var(--border-default) !important;
+  color: var(--text-secondary) !important;
+}
+.el-message-box__btns .el-button--default:hover {
+  border-color: rgba(34, 211, 238, 0.35) !important;
+  box-shadow: var(--glow-accent);
+  color: var(--text-primary) !important;
+}
+.el-message-box__btns .el-button--primary {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}

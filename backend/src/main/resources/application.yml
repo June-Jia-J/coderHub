@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.example.blog.entity
+  mapper-locations: classpath:mapper/*.xml
+
+server:
+  port: 8080
+
+ollama:
+  base-url: ${OLLAMA_BASE_URL:http://host.docker.internal:11434}
+  model: ${OLLAMA_MODEL:deepseek-r1:1.5b}
+
+jwt:
+  secret: ${JWT_SECRET:blog-jwt-secret-key-min-256-bits-for-hs256}
+  expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+
+logging:
+  level:
+    root: INFO
+    com.example.blog: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

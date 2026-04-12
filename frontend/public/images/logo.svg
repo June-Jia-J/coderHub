@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="logo-bg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a0e14"/>
+      <stop offset="1" stop-color="#0f1419"/>
+    </linearGradient>
+    <filter id="logo-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.05  0 0 0 0 0.58  0 0 0 0 0.53  0 0 0 0.6 0" result="colored"/>
+      <feMerge>
+        <feMergeNode in="colored"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="12" fill="url(#logo-bg)" stroke="rgba(13,148,136,0.5)" stroke-width="2"/>
+  <g filter="url(#logo-glow)">
+    <rect x="24" y="28" width="80" height="56" rx="6" fill="#151b23" stroke="#0d9488" stroke-width="2"/>
+    <rect x="24" y="28" width="80" height="18" rx="6" fill="#1a2129"/>
+    <circle cx="38" cy="38" r="4" fill="#ef4444"/>
+    <circle cx="50" cy="38" r="4" fill="#f59e0b"/>
+    <circle cx="62" cy="38" r="4" fill="#22c55e"/>
+    <rect x="32" y="54" width="48" height="8" rx="2" fill="#0d9488" opacity="0.9"/>
+    <rect x="32" y="66" width="64" height="8" rx="2" fill="#22d3ee" opacity="0.85"/>
+    <rect x="32" y="78" width="40" height="8" rx="2" fill="#0d9488" opacity="0.7"/>
+  </g>
+</svg>
