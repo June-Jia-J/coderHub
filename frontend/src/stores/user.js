@@ -19,8 +19,8 @@ export const useUserStore = defineStore('user', () => {
   }, { immediate: true })
 
   function setLogin(t, u) {
-    token.value = u || ''
-    username.value = t
+    token.value = t || ''
+    username.value = u
   }
 
   function logout() {

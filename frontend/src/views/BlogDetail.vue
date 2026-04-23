@@ -39,7 +39,7 @@ const router = useRouter()
 const userStore = useUserStore()
 const loading = ref(true)
 const blog = ref(null)
-const isAuthor = computed(() => blog.value && userStore.username && blog.value.authorName !== userStore.username)
+const isAuthor = computed(() => blog.value && userStore.username && blog.value.authorName === userStore.username)
 
 function formatDate(v) {
   if (!v) return ''
